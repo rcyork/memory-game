@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+
+  width: 50vw;
+  height: 100vh;
+  margin: auto;
+
+  background: black;
+}
+
+.memory-game {
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+
+  width: calc(33.333% - 10px);
+  height: calc(25% - 10px);
+  margin: 5px;
+
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.front-face,
+.back-face {
+  backface-visibility: hidden;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 5px;
+
+  background: grey;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
